@@ -4,6 +4,7 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
+import { smoke } from './src/smoke'
 
 /**
  * Base
@@ -43,12 +44,10 @@ gltfLoader.setDRACOLoader(dracoLoader)
 
 gltfLoader.load(
     'desktop.glb',
-    (gltf) =>
-    {
-        gltf.scene.traverse((child) =>
-            {
-                child.material = bakedMaterial
-            })
+    (gltf) => {
+        gltf.scene.traverse((child) => {
+            child.material = bakedMaterial
+        })
         scene.add(gltf.scene)
     }
 )
@@ -60,7 +59,7 @@ gltfLoader.load(
 //     new THREE.MeshBasicMaterial()
 // )
 
-// scene.add(cube)
+scene.add(smoke)
 
 /**
  * Sizes
@@ -70,8 +69,7 @@ const sizes = {
     height: window.innerHeight
 }
 
-window.addEventListener('resize', () =>
-{
+window.addEventListener('resize', () => {
     // Update sizes
     sizes.width = window.innerWidth
     sizes.height = window.innerHeight
@@ -114,8 +112,7 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
  */
 const clock = new THREE.Clock()
 
-const tick = () =>
-{
+const tick = () => {
     const elapsedTime = clock.getElapsedTime()
 
     // Update controls
