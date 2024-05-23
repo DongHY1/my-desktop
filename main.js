@@ -1,5 +1,5 @@
 import './style.css'
-import { sizes } from './src/utils'
+import { sizes, stats } from './src/utils'
 import { smokeMaterial } from './src/features/smoke'
 import { camera } from './src/camera'
 import {initScene} from './src/scene'
@@ -10,6 +10,7 @@ import { clock } from './src/clock'
 const scene = initScene()
 
 function tick(){
+    stats.begin()
     const elapsedTime = clock.getElapsedTime()
     smokeMaterial.uniforms.uTime.value = elapsedTime
     // Update controls
@@ -18,7 +19,9 @@ function tick(){
     renderer.render(scene, camera)
     // Call tick again on the next frame
     window.requestAnimationFrame(tick)
+    stats.end()
 }
+
 tick()
 
 window.addEventListener('resize', () => {
