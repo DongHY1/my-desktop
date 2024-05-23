@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { canvas } from './canvas'
+import { canvas } from './element'
 import { sizes } from './utils'
 const renderer = new THREE.WebGLRenderer({
     canvas: canvas,
@@ -8,4 +8,4 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
-export {renderer}
+export { renderer }
