@@ -4,15 +4,16 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
-import { smoke } from './src/smoke'
+import { smoke,smokeMaterial } from './src/features/smoke'
+
 
 /**
  * Base
  */
 // Debug
-const gui = new GUI({
-    width: 400
-})
+// const gui = new GUI({
+//     width: 400
+// })
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -31,8 +32,10 @@ const bakedTexture = textureLoader.load('baked.jpg')
 
 const bakedMaterial = new THREE.MeshBasicMaterial({ map: bakedTexture })
 
+
 bakedTexture.flipY = false
 bakedTexture.colorSpace = THREE.SRGBColorSpace
+
 // Draco loader
 const dracoLoader = new DRACOLoader()
 dracoLoader.setDecoderPath('draco/')
@@ -51,13 +54,6 @@ gltfLoader.load(
         scene.add(gltf.scene)
     }
 )
-/**
- * Object
- */
-// const cube = new THREE.Mesh(
-//     new THREE.BoxGeometry(1, 1, 1),
-//     new THREE.MeshBasicMaterial()
-// )
 
 scene.add(smoke)
 
@@ -88,9 +84,9 @@ window.addEventListener('resize', () => {
  */
 // Base camera
 const camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.1, 100)
-camera.position.x = 4
-camera.position.y = 2
-camera.position.z = 4
+camera.position.x = -3
+camera.position.y = 3
+camera.position.z = 1
 scene.add(camera)
 
 // Controls
@@ -114,15 +110,12 @@ const clock = new THREE.Clock()
 
 const tick = () => {
     const elapsedTime = clock.getElapsedTime()
-
+    smokeMaterial.uniforms.uTime.value = elapsedTime
     // Update controls
     controls.update()
-
     // Render
     renderer.render(scene, camera)
-
     // Call tick again on the next frame
     window.requestAnimationFrame(tick)
 }
-
 tick()
