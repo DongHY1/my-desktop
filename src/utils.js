@@ -7,5 +7,5 @@ const sizes = {
     width: window.innerWidth,
     height: window.innerHeight
 }
-
-export {sizes,stats}
+const ROTATE_LISTS = ['monitor', 'laptop-a', 'laptop-b']
+export { sizes, stats, ROTATE_LISTS }

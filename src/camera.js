@@ -4,5 +4,5 @@ const camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.1, 
 camera.position.x = -3
 camera.position.y = 3
 camera.position.z = 1
-
-export {camera}
+console.log(camera.position)
+export { camera }
