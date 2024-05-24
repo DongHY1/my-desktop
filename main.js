@@ -16,9 +16,7 @@ function tick() {
     const elapsedTime = clock.getElapsedTime()
     smokeMaterial.uniforms.uTime.value = elapsedTime
     // Update controls
-    const delta = clock.getDelta();
-    controls.update(delta);
-    // controls.update()
+    controls.update()
     const desktop = scene.children[1].children
     if (desktop.length > 0) {
         desktop.find((item) => {
