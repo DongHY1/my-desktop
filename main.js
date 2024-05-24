@@ -15,6 +15,14 @@ function tick() {
     smokeMaterial.uniforms.uTime.value = elapsedTime
     // Update controls
     controls.update()
+    const desktop = scene.children[1].children
+    if (desktop.length > 0) {
+        desktop.find((item) => {
+            if (item.name === 'OfficeChair002') {
+                item.rotation.z += 0.005
+            }
+        })
+    }
     // Render
     renderer.render(scene, camera)
     // Call tick again on the next frame
