@@ -2,19 +2,18 @@ import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 import { gsap } from 'gsap'
-import { overlayMaterial } from './overlay'
-// import { loadingBarElement } from './element'
+import { overlay, overlayMaterial } from './overlay'
+import { scene } from './scene'
 const loadingManager = new THREE.LoadingManager(
-    // Loaded
     () => {
-        window.setTimeout(() => {
-            gsap.to(overlayMaterial.uniforms.uAlpha, { duration: 3, value: 0, delay: 1 })
-        }, 500)
-    },
-
-    // Progress
-    (_, itemsLoaded, itemsTotal) => {
-        // const progressRatio = itemsLoaded / itemsTotal
+        gsap.to(overlayMaterial.uniforms.uAlpha, {
+            duration: 3,
+            value: 0,
+            delay: 1,
+            onComplete: () => {
+                scene.remove(overlay);
+            }
+        });
 
     }
 )

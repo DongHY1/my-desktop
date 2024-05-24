@@ -14,8 +14,8 @@ perlinTexture.wrapT = THREE.RepeatWrapping
 export const smokeMaterial = new THREE.ShaderMaterial({
     vertexShader: smokeVertexShader,
     fragmentShader: smokeFragmentShader,
-    transparent:true,
-    depthWrite:false,
+    transparent: true,
+    depthWrite: false,
     uniforms:
     {
         uTime: new THREE.Uniform(0),

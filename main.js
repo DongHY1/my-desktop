@@ -2,14 +2,14 @@ import './style.css'
 import { sizes, stats } from './src/utils'
 import { smokeMaterial } from './src/features/smoke'
 import { camera } from './src/camera'
-import {initScene} from './src/scene'
-import {controls} from './src/controls'
+import { scene, initScene } from './src/scene'
+import { controls } from './src/controls'
 import { renderer } from './src/render'
 import { clock } from './src/clock'
 
-const scene = initScene()
+initScene()
 
-function tick(){
+function tick() {
     stats.begin()
     const elapsedTime = clock.getElapsedTime()
     smokeMaterial.uniforms.uTime.value = elapsedTime
