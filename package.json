@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "gsap": "^3.12.5",
-    "jotai": "^2.8.1",
     "lil-gui": "^0.19.2",
     "stats.js": "^0.17.0",
     "three": "^0.164.1"
