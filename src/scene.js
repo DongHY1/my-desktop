@@ -4,8 +4,6 @@ import { smoke } from './features/smoke'
 import { camera } from './camera'
 import { overlay } from './overlay'
 import { gltfLoader } from './loaders'
-
-
 const scene = new THREE.Scene()
 function initScene() {
     scene.add(overlay)

@@ -4,5 +4,4 @@ import { camera } from './camera'
 import { canvas } from './element'
 const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
-
 export { controls }
