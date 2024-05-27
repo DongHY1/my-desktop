@@ -1,6 +1,6 @@
 import './style.css'
 import * as THREE from 'three'
-import { sizes, stats, ROTATE_LISTS, screenPosition } from './src/utils'
+import { sizes, stats, ROTATE_LISTS, screenPosition, screenTarget } from './src/utils'
 import { smokeMaterial } from './src/features/smoke'
 import { camera } from './src/camera'
 import { scene, initScene } from './src/scene'
@@ -38,7 +38,6 @@ window.addEventListener('resize', () => {
     renderer.setSize(sizes.width, sizes.height)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 })
-
 window.addEventListener('mousedown', (event) => {
     const coords = new THREE.Vector2(
         (event.clientX / renderer.domElement.clientWidth) * 2 - 1,
@@ -54,7 +53,10 @@ window.addEventListener('mousedown', (event) => {
                 y: screenPosition.y,
                 z: screenPosition.z,
                 duration: 1.5,
-                ease: 'power3.inOut'
+                ease: 'power3.inOut',
+                onComplete() {
+                    controls.target.copy(screenTarget);
+                }
             });
         }
     }
