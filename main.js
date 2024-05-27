@@ -49,12 +49,12 @@ window.addEventListener('mousedown', (event) => {
         const selectedObject = intersections[0].object;
         if (ROTATE_LISTS.includes(selectedObject.name)) {
             // 添加逻辑代码来复现相机的位置和方向
-            const flyPosition = new THREE.Vector3(-0.699, 0.736, -0.071); // 用你实际打印的值替换
+            const flyPosition = new THREE.Vector3(-0.97, 0.69, -0.25); // 用你实际打印的值替换
             const flyQuaternion = new THREE.Quaternion(0.0237, -0.887, 0.048, 0.458); // 用你实际打印的值替换
 
             // 计算目标点并设置 OrbitControls 的目标
             const direction = new THREE.Vector3(0, 0, -1).applyQuaternion(flyQuaternion);
-            const distanceToTarget = 10;
+            const distanceToTarget = 0.5;
             const target = flyPosition.clone().add(direction.multiplyScalar(distanceToTarget));
             gsap.to(camera.position, {
                 x: flyPosition.x,
