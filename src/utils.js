@@ -1,5 +1,4 @@
 import Stats from 'stats.js'
-
 const stats = new Stats()
 stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
 document.body.appendChild(stats.dom)
@@ -7,5 +6,5 @@ const sizes = {
     width: window.innerWidth,
     height: window.innerHeight
 }
-const ROTATE_LISTS = ['monitor', 'laptop-a', 'laptop-b']
+const ROTATE_LISTS = ['monitor', 'laptop-a', 'laptop-b', 'OfficeChair002']
 export { sizes, stats, ROTATE_LISTS }
