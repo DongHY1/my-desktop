@@ -21,7 +21,6 @@ function tick() {
     renderer.render(scene, camera)
     window.requestAnimationFrame(tick)
     stats.end();
-    console.log(camera.position)
 }
 
 tick()
