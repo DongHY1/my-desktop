@@ -46,6 +46,36 @@ window.addEventListener('mousedown', (event) => {
     const intersections = raycaster.intersectObjects(scene.children[1].children);
     if (intersections.length > 0) {
         const selectedObject = intersections[0].object;
+        if (selectedObject.name === 'laptop-a') {
+            // 关闭电脑屏幕
+            gsap.to(selectedObject.position, {
+                x: -0.225,
+                y: 0.558,
+                z: 0.25,
+                duration: 1,
+                ease: 'power3.inOut'
+            })
+            gsap.to(selectedObject.rotation, {
+                x: 1.632381,
+                y: -0.06541,
+                z: 2.13756,
+                duration: 1,
+                ease: "power3.inOut",
+            });
+
+            const targetQuaternion = new THREE.Quaternion(0.336, -0.64685, 0.597655, 0.360972);
+            gsap.to(selectedObject.quaternion, {
+                _x: targetQuaternion.x,
+                _y: targetQuaternion.y,
+                _z: targetQuaternion.z,
+                _w: targetQuaternion.w,
+                duration: 1,
+                ease: "power3.inOut",
+                onUpdate: () => {
+                    selectedObject.quaternion.set(gsap.getProperty(selectedObject.quaternion, "_x"), gsap.getProperty(selectedObject.quaternion, "_y"), gsap.getProperty(selectedObject.quaternion, "_z"), gsap.getProperty(selectedObject.quaternion, "_w"));
+                }
+            });
+        }
         if (ROTATE_LISTS.includes(selectedObject.name)) {
             gsap.to(camera.position, {
                 x: screenPosition.x,
