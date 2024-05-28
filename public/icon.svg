@@ -1,0 +1,12 @@
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+  <path width="200" height="200" fill="#F5F5DC" d="M0 0H16V16H0V0z"/>
+  <path x="30" y="100" width="140" height="50" fill="#D3D3D3" d="M2.4 8H13.6V12H2.4V8z"/>
+  <path x="70" y="120" width="100" height="30" fill="#C0C0C0" d="M5.6 9.6H13.6V12H5.6V9.6z"/>
+  <path x="110" y="80" width="30" height="20" fill="#000000" d="M8.8 6.4H11.2V8H8.8V6.4z"/>
+  <path x="150" y="85" width="10" height="15" fill="#8B4513" d="M12 6.8H12.8V8H12V6.8z"/>
+  <path cx="155" cy="80" r="8" fill="#228B22" d="M13.04 6.4A0.64 0.64 0 0 1 12.4 7.04A0.64 0.64 0 0 1 11.76 6.4A0.64 0.64 0 0 1 13.04 6.4z"/>
+  <path x="35" y="80" width="8" height="20" fill="#4169E1" d="M2.8 6.4H3.44V8H2.8V6.4z"/>
+  <path x="50" y="80" width="8" height="20" fill="#4169E1" d="M4 6.4H4.64V8H4V6.4z"/>
+  <path x="65" y="80" width="8" height="20" fill="#4169E1" d="M5.2 6.4H5.84V8H5.2V6.4z"/>
+  <path x="80" y="80" width="8" height="20" fill="#4169E1" d="M6.4 6.4H7.04V8H6.4V6.4z"/>
+</svg>
