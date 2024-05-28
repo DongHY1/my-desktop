@@ -11,7 +11,7 @@ const loadingManager = new THREE.LoadingManager(
             value: 0,
             delay: 1,
             onComplete: () => {
-                scene.remove(overlay); // remove overlay to show smoke.it works but i don't know if this is a right solution
+                scene.remove(overlay); // remove overlay to show smoke.it works but i don't know
             }
         });
     }

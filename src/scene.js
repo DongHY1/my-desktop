@@ -4,6 +4,7 @@ import { smoke } from './features/smoke'
 import { camera } from './camera'
 import { overlay } from './overlay'
 import { gltfLoader } from './loaders'
+import { videoMaterial } from './features/video'
 const scene = new THREE.Scene()
 function initScene() {
     scene.add(overlay)
@@ -11,9 +12,13 @@ function initScene() {
     gltfLoader.load(
         'desktop.glb',
         (gltf) => {
-            // 遍历模型，找到laptop-a和laptop-b
             gltf.scene.traverse((child) => {
-                child.material = bakedMaterial;
+                if (child.name === 'monitor') {
+                    child.material = videoMaterial
+                } else {
+                    child.material = bakedMaterial;
+                }
+
             })
             scene.add(gltf.scene);
             scene.add(smoke);
