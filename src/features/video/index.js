@@ -11,8 +11,8 @@ videoElement.play();
 
 // Video Texture
 const videoTexture = new THREE.VideoTexture(videoElement);
-videoTexture.encoding = THREE.sRGBEncoding;
 const videoMaterial = new THREE.MeshBasicMaterial({
     map: videoTexture
 });
+videoMaterial.map.colorSpace = 'srgb'
 export { videoElement, videoMaterial }
