@@ -8,7 +8,7 @@ import { videoMaterial } from './features/video'
 const scene = new THREE.Scene()
 function initScene() {
     scene.add(overlay)
-    scene.background = new THREE.Color(0x282828);
+    scene.background = new THREE.Color(0xFFFFFF);
     gltfLoader.load(
         'desktop.glb',
         (gltf) => {
